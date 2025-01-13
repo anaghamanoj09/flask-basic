@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Username</th>
+        </tr>
+        {% for u in us %}
+        <tr>
+            <td>{{u.name}}</td>
+            <td>{{u.age}}</td>
+            <td>{{u.address}}</td>
+            <td>{{u.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

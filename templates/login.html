@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for ('std_loginAction')}}" method="post">
+    <table>
+        <tr>
+            <th>Username</th>
+            <td>
+                <input type="text" name="username" id="">
+            </td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td>
+                <input type="password" name="password" id="">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Login">
+</form>
+</body>
+</html>

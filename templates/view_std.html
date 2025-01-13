@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+        {% for u in us %}
+        <tr>
+            <td>{{u.name}}</td>
+            <td>{{u.age}}</td>
+            <td>{{u.address}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.password}}</td>
+            <td><a href="{{url_for('edit',stdid=u.id)}}">Edit</a></td>
+            <td><a href="{{url_for('delete',stdid=u.id)}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% if get_flashed_messages() %}
+    {% for m in get_flashed_messages() %}
+    <script>
+        alert('{{m}}')
+    </script>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

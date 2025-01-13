@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/static/jquery-1.8.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#username').change(function(){
+                var user=$('#username').val();
+                $.ajax({
+                    url:"{{url_for('get_username')}}",
+                    data:{ 'name':user},
+                    success:function(data)
+                    {
+                        if(data.valid == 'exist')
+                    {
+                        alert("username already exists")
+                    }
+                    },
+                    error:function(error)
+                    {
+                        alert("error occured")
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <form action="{{url_for('regAction')}}" method="post">
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>
+                <input type="text" name="name" id="">
+            </td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>
+                <input type="number" name="age" id="">
+            </td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><textarea name="address" id=""></textarea></td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <td>
+                <input type="text" name="username" id="username">
+            </td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td>
+                <input type="password" name="password" id="">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Register">
+</form>
+{% if get_flashed_messages() %}
+{% for m in get_flashed_messages() %}
+<script>
+    alert('{{m}}')
+</script>
+{% endfor %}
+{% endif %}
+</body>
+</html>

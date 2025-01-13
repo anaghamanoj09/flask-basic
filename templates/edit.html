@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('std_editaction')}}" method="post">
+    {% for u in us %}
+    <input type="hidden" name="id" value="{{u.id}}">
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>
+                <input type="text" name="name" value="{{u.name}}">
+            </td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>
+                <input type="number" name="age" value="{{u.age}}">
+            </td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>
+                <input type="text" name="address" value="{{u.address}}">
+            </td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <td>
+                <input type="text" name="username" value="{{u.username}}">
+            </td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td>
+                <input type="name" name="password" value="{{u.password}}">
+            </td>
+        </tr>
+    </table>
+    {% endfor %}
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

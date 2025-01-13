@@ -1,0 +1,14 @@
+Welcome student home page
+
+<li><a href="{{url_for('view_std')}}">View students</a></li>
+<li><a href="{{url_for('view_profile')}}">View profile</a></li>
+<li><a href="{{url_for('dropdown_country')}}">Dropdown</a></li>
+<li><a href="{{url_for('Image_upload')}}">Upload File</a></li>
+
+{% if get_flashed_messages() %}
+{% for m in get_flashed_messages() %}
+<script>
+    alert('{{m}}')
+</script>
+{% endfor %}
+{% endif %}
